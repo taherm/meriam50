@@ -20,15 +20,20 @@
     <br>
 
     <div class="container">
-	<img src="{{asset($ser->image)}}" alt="" />
-
-    </div>
-    <br>
-    <div class="container">
-	<p>
+    <div class="row">
+    <div class="col-lg-6">
+    <p>
 									{!!$ser->description!!}
 									</p>
+</div>
+<div class="col-lg-6">
+<img src="{{asset($ser->image)}}" class="img-responsive" alt="" />
+
+</div>
+</div>
     </div>
+    <br>
+    
 
 @endsection
   

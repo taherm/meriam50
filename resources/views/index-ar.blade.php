@@ -95,7 +95,9 @@
 
 
 <div class="container">
-      <h3 class="text-center">Courses</h3>
+<p style="text-align: center; color: #5ea7da !important; font-size: 20px;">
+            <strong>الدورات</strong>
+          </p>
       
     	
       <div class="row row-bottom-margin">
@@ -131,7 +133,7 @@
 
 <div class="container">
         <p style="text-align: center; color: #5ea7da !important; font-size: 20px;">
-            <strong>Instagram</strong>
+            <strong>الانستقرام</strong>
           </p>
     
     <div id="instafeed"></div>
