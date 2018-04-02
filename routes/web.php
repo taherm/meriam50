@@ -1,6 +1,8 @@
 <?php
 use App\Arabicservice;
 use App\Slider;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +25,6 @@ use App\Slider;
 Route::get('/', function () {
     $slider=Slider::all();
     $ser=Arabicservice::all();
-
     return view('index-ar',compact('slider','ser'));
 });
 

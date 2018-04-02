@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="{{asset('/css/style.css')}}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="{{asset('/js/bootstrap.min.js')}}"></script>
-  
+  <script src="{{asset('/js/instafeed.min.js')}}"></script>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 <div id="container">
@@ -65,6 +65,16 @@
   </div>
 </footer>
 </div>
+<script type="text/javascript">
+    var feed = new Instafeed({
+      get: 'user',
+      userId: '7415655229',
+        
+      accessToken: '7415655229.1677ed0.1887ca25b0b547e8a8e3eacb8108ad09',
+      template: '  <div class="col-lg-2"><a href="@{{link}}"><img src="@{{image}}" class="img-thumbnail"/></a> </div>'
+            });
+    feed.run();
+</script>
 <script>
 $(document).ready(function(){
   // Initialize Tooltip

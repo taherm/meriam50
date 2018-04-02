@@ -129,7 +129,14 @@
 
     </div>
 
-
+<div class="container">
+        <p style="text-align: center; color: #5ea7da !important; font-size: 20px;">
+            <strong>Instagram</strong>
+          </p>
+    
+    <div id="instafeed"></div>
+  </div>
+  <br>
 
 
 @endsection
