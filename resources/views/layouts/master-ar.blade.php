@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="{{asset('/css/bootstrap-rtl.min.css')}}">
  
   <link rel="stylesheet" href="{{asset('/css/style.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Cairo:600" rel="stylesheet"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="{{asset('/js/bootstrap.min.js')}}"></script>
   <script src="{{asset('/js/instafeed.min.js')}}"></script>
@@ -30,7 +31,7 @@
       @foreach($cat as $item)
 			                @if($item->children->count() > 0)
 							<li class="dropdown">
-								<a href="{{ url($item->url) }}" class="dropdown-toggle disabled" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">{{$item->title}} <i class="fa fa-angle-down"></i></a>
+								<a href="" style="cursor:default" class="dropdown-toggle disabled" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">{{$item->title}} <i class="fa fa-angle-down"></i></a>
 								<ul class="dropdown-menu">
 									@foreach($item->children as $submenu)
 					<li><a href="{{ url($submenu->url) }}">{{$submenu->title}}</a></li>
@@ -68,10 +69,11 @@
 <script type="text/javascript">
     var feed = new Instafeed({
       get: 'user',
-      userId: '7415655229',
-        
-      accessToken: '7415655229.1677ed0.1887ca25b0b547e8a8e3eacb8108ad09',
-      template: '  <div class="col-lg-2"><a href="@{{link}}"><img src="@{{image}}" class="img-thumbnail"/></a> </div>'
+      userId: '14927392',
+      limit:'4',
+      resolution:'low_resolution',
+      accessToken: '14927392.8f4c5bf.cafc2df6c80d43769a6e49372ca010b1',
+      template: '  <div class="col-sm-3"><a href="@{{link}}"><img src="@{{image}}" class="img-thumbnail img-responsive"/></a> </div>'
             });
     feed.run();
 </script>

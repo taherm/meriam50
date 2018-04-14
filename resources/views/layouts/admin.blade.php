@@ -1,17 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin Panel</title>
-  <!-- Bootstrap core CSS -->
-  <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
-  <link href="{{asset('/css/style1.css')}}" rel="stylesheet">
-  <script src="{{url('http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js')}}"></script>
-  <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-  <script>tinymce.init({
+    <title>Instructor Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+
+            <link href="/ad/css/bootstrap.css" rel="stylesheet">
+<link href="/ad/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="/ad/fonts/fontello/css/fontello.css" rel="stylesheet">
+<link href="/ad/plugins/select2/select2.min.css" rel="stylesheet">
+        <link href="/ad/css/style.css" rel='stylesheet' type='text/css' />
+        <link href="/ad/css/custom.css" rel="stylesheet">
+        
+  
+</head>
+<body>
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-top" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <h1> <a class="navbar-brand" href="/admin" target="_blank">Instructor</a></h1>
+    </div>
+    <div class=" border-bottom">
+
+        <div class="clearfix"></div>
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+
+                    <li>
+                        <a href="/admin" class=" hvr-bounce-to-right"><i class="fa fa-dashboard nav_icon " ></i><span class="nav-label black">Dashboards</span> </a>
+                    </li>
+                    <li>
+                        <a href="/admin/menu" class=" hvr-bounce-to-right">
+                            <i class="fa fa-sliders nav_icon " ></i>
+                            <span class="nav-label black">Menu</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/page" class=" hvr-bounce-to-right">
+                            <i class="fa fa-clone nav_icon" ></i>
+                            <span class="nav-label black">Pages</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/add-slider" class=" hvr-bounce-to-right">
+                            <i class="fa fa-snowflake-o nav_icon" ></i>
+                            <span class="nav-label black">Add Slider</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/delete-slider" class=" hvr-bounce-to-right">
+                            <i class="fa fa-snowflake-o nav_icon" ></i>
+                            <span class="nav-label black">Delete Slider</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+
+        <div class="content-main">
+                            <div class="banner">
+    <h2>
+        <a href="/admin">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Dashboard</span>
+    </h2>
+</div>                        <div class="content-top" >
+
+                
+@yield('content')
+
+
+
+
+                </div>
+
+<div class="copy">
+<p>&copy; 2016. All Rights Reserved</p>
+</div>
+</div>
+<div class="clearfix"> </div>
+</div>
+</div>
+
+
+
+<script type="text/javascript" src="/ad/plugins/jquery.min.js"></script>
+<script type="text/javascript" src="/ad/js/bootstrap.min.js"></script>
+
+<!-- Modernizr javascript -->
+<script type="text/javascript" src="/ad/plugins/modernizr.js"></script>
+
+<!-- jQuery REVOLUTION Slider  -->
+<script type="text/javascript" src="/ad/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="/ad/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+<!-- Isotope javascript -->
+
+<!-- Owl carousel javascript -->
+<script type="text/javascript" src="/ad/plugins/owl-carousel/owl.carousel.js"></script>
+
+<!-- Magnific Popup javascript -->
+<script type="text/javascript" src="/ad/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<!-- Appear javascript -->
+<script type="text/javascript" src="/ad/plugins/jquery.appear.js"></script>
+
+<!-- Parallax javascript -->
+<script src="/ad/plugins/jquery.parallax-1.1.3.js"></script>
+
+<!-- Contact form -->
+<script src="/ad/plugins/jquery.validate.js"></script>
+
+<!-- SmoothScroll javascript -->
+<script type="text/javascript" src="/ad/plugins/jquery.browser.js"></script>
+<script type="text/javascript" src="/ad/plugins/SmoothScroll.js"></script>
+
+<script src="/ad/plugins/select2/select2.full.min.js"></script>
+<script src="/ad/plugins/tinymce/tinymce.jquery.min.js"></script>
+<script type="text/javascript" src="/ad/plugins/tinymce/tinymce.min.js"></script>
+<script src="{{url('http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js')}}"></script>
+
+<!-- Initialization of Plugins -->
+<script type="text/javascript" src="/ad/js/template.js"></script>
+
+<!-- Custom Scripts -->
+<script type="text/javascript" src="/ad/js/custom.js"></script>
+<!-- Color Switcher (Remove these lines) -->
+
+
+<script>
+tinymce.init({
   selector: '#editor',
   plugins: 'image code',
   toolbar: 'undo redo | link image | code',
@@ -58,73 +191,32 @@
     input.click();
   }
 });</script>
-</head>
-
-<body>
-
-  <header id="header">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10">
-          <h1>
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Admin Panel
-            
-          </h1>
-        </div>
-       
-      </div>
-    </div>
-  </header>
 
 
 
-  <section id="main">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="list-group">
-            <a href="{{url('admin')}}" class="list-group-item active main-color-bg">
-              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
-            </a>
-            <a href="{{url('admin/create-page')}}" class="list-group-item">
-              <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Create Pages
-              
-            </a>
-            <a href="{{url('admin/sub-menu')}}" class="list-group-item">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Create Sub Menu
-              
-            </a>
-            <a href="{{url('admin/main-menu')}}" class="list-group-item">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Create Main Menu
-              
-            </a>
-            <a href="{{url('admin/delete-menu')}}" class="list-group-item">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Delete Menu
-              
-            </a>
-            <a href="{{url('admin/add-slider')}}" class="list-group-item">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Add Slider Image
-              
-            </a>
-
-            
-            <a href="{{url('admin/delete-slider')}}" class="list-group-item">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Delete Slider Image
-              
-            </a>
-          </div>
 
 
-        </div>
-
-@yield('content')
 
 
-        </div>
-    </div>
-  </section>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+
+
+
+<script>
+
+$(document).ready(function () {
+$(".select2").select2();
+$("[data-toggle=tooltip]").tooltip();
+});
+
+$(document).on('show.bs.modal', function (event) {
+var button = $(event.relatedTarget) // Button that triggered the modal
+if ( $( "#deleteModal" ).length ) {
+var link = button.data('link'); // Extract info from data-* attributes
+$("#deleteModal").attr("action", link);
+}
+});
+
+</script>
 </body>
-
 </html>
+

@@ -14,9 +14,16 @@ class AdminController extends Controller
 
     public function index()
     {
-        $ser=Arabicservice::all();
+       $ser=Arabicservice::all();
         return view('admin.index',compact('ser'));
     }
+
+    public function show()
+    {
+       $ser=Arabicservice::all();
+        return view('admin.pages',compact('ser'));
+    }
+
 
     public function delete_slider()
     {
@@ -33,8 +40,18 @@ class AdminController extends Controller
         $slide->image=$filename;
        
         $slide->save();
-        return redirect('/admin');
+        return redirect('/admin/add-slider');
     }
+
+
+    public function edit_menu($id)
+    {
+        $serv=Arabicmenu::find($id);
+        return view('admin.menu_edit',compact('serv'));
+    }
+    
+
+
 
 
     public function submenu()
@@ -54,6 +71,9 @@ class AdminController extends Controller
          return redirect('/admin');
     }
 
+
+
+    
     public function mainmenu()
     {
        
@@ -78,13 +98,6 @@ class AdminController extends Controller
 
     public function update($id)
     {
-        //dd('stopo here');
-        $this->validate(request(),[
-        'title'=>'required',
-        'description'=>'required',
-        'image'=>'required'
-         ]);
-        
         $serv=Arabicservice::find($id);
         $fn=$serv->title;
         $serv->title=request('title');
@@ -96,6 +109,11 @@ class AdminController extends Controller
         $menu=Arabicmenu::where('title',"=",$fn)->first();
         $menu->title=request('title');
         $menu->url="services/menu/".$serv->title;
+        if(request('menu')!='None')
+{
+    $menu->parent_id=Arabicmenu::where('title',request('menu'))->first()->id;
+
+}
 $menu->save();
         $serv->save();
         //File::move("C://xampp/htdocs/pim/resources/views/services/".$fn.'.blade.php',"C://xampp/htdocs/pim/resources/views/services/".request('title').'.blade.php');
@@ -104,20 +122,34 @@ $menu->save();
     }
 
 
-    public function store()
+    public function updatemenu($id)
     {
-    
-    $this->validate(request(),[
-       'title'=>'required',
-       'description'=>'required'
-       
-        ]);
-   
-     // $temp= File::get("C://xampp/htdocs/pim/resources/views/layouts/new-service-layout.blade.php");
-       
+            $serv=Arabicmenu::find($id);
+            $fn=$serv->title;
+            $serv->title=request('title');
+            
+            $menu=Arabicmenu::where('title',"=",$fn)->first();
+            $menu->title=request('title');
+            $menu->url="menu/".$serv->title;
+            if(request('menu')!='None')
+            {
+                $menu->parent_id=Arabicmenu::where('title',request('menu'))->first()->id;
+            
+            }
+    $menu->save();
+            //File::move("C://xampp/htdocs/pim/resources/views/services/".$fn.'.blade.php',"C://xampp/htdocs/pim/resources/views/services/".request('title').'.blade.php');
+            //dd(request()->all());
+            return redirect('/admin');
+    }
 
     
-       // File::put("C://xampp/htdocs/pim/resources/views/services/".request('title').'.blade.php',$temp);
+
+
+
+
+
+    public function store()
+    {
         $serv=new Arabicservice;
         $serv->title=request('title');
         $serv->description=request('description');
@@ -161,16 +193,17 @@ $menu->save();
         return redirect('/admin');
     }
 
-    public function del()
+    public function del($id)
     {
-       $menu= Arabicmenu::where('title',request('submenu'))->first();
+       $menu= Arabicmenu::find($id)->delete();;
        //$temp=$menu->title;
       // File::delete("C://xampp/htdocs/pim/resources/views/services/".$temp.'.blade.php');
-        
-      Arabicmenu::where('title',request('submenu'))->delete();
+ 
+      //Arabicmenu::where('title',request('submenu'))->delete();
     return redirect('/admin');
     }
 
+    
 
 
 

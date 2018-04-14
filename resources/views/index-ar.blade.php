@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-          <img src="/img/services/mubarak2.jpg" float="left"/> 
+          <img src="{{asset('/img/slider/Header.jpg')}}" float="left" class="img-responsive"/> 
           </div>
         </div>
       </div>
@@ -46,11 +46,11 @@
       
     @endif
     @if($ext=='mp4')
-    <video controls style="display:block;width:100%;height:450px;margin:0;">
-        <source src="{{$slide->image }}" type="video/mp4">
+    <video controls style="display:block;width:100%;height:361px;margin:0;">
+        <source src="{{asset($slide->image)}}" type="video/mp4">
       </video>
       @else
-      <img src="{{$slide->image }}"
+      <img src="{{asset($slide->image)}}"
                                 data-bgposition="center center"
                                 data-bgfit="cover"
                                 data-bgrepeat="no-repeat"
@@ -76,18 +76,10 @@
 
 <div class="container text-center">
 <br>
-  <p style="text-align: right; font-size: 18px; color: black !important;">يعد حفظ سجلات محاسبية دقيقة وشاملة جزءا ضروريا من ممارسة الأعمال والمشاريع التجارية ، لذلك فإن نجاح مشروعك يعتمد على
-        تلك السجلات ، حيث أن السجلات المحاسبية تمكنك من قياس نبض مشروعك بدقة من خلال إكتشاف أي خلل في سير أعمال المشروع بهدف
-        إتخاذ إجراءات التصحيح المناسبة قبل فوات الأوان .</p>
-      <p style="text-align: right; font-size: 18px; color: black !important;">إن إمتلاك وتشغيل مشروعك التجاري يتطلب منك تنفيذ العديد من المهام والمسئوليات للحفاظ على نجاح عملك . في الوقت الذي تود
-        أن تكون فيه مطلع على الكثير من مسئولياتك اليومية في مشروعك التجاري ، فإنه من المفيد الإستعانة بالمختصين في مجال إعداد
-        وحفظ السجلات المحاسبية والإدارة المالية. هنا في شركة ريكين نختص في إعداد وحفظ السجلات المحاسبية. فريق عملنا سيمكنك
-        من التفرغ والتركيز على إدارة مشروعك التجاري بينما نهتم نحن في التعامل مع الأرقام. مع خدمات ريكين لإعداد وحفظ السجلات
-        المحاسبية ، يمكنك تحويل جهدك والتركيز على الأعمال الأخرى التي تحتاج منك القيام بها.</p>
-      <p style="text-align: right; font-size: 18px; color: black !important;">لم يعد من الضروري بالنسبة لك توظيف محاسب بدوام كامل أو حتى بدوام جزئي ، من خلال الاستعانة بخدمات إعداد وحفظ السجلات
-        المحاسبية من الشركات الإستشارية ستتاح لك فرصة خفض التكاليف وتوفير النفقات المتعلقة بالإدارة المالية كنفقات الموظفين
-        بالإضافة إلى النفقات المتعلقة بالأنظمة والبرامج الآلية ، وسوف تستفيد من خبرات المحاسبين المحترفين والمؤهلين دون الحاجة
-        إلى توظيفهم .</p>
+  <p style="text-align: center; font-size: 18px; color: black !important;"> نرحب بزيارتكم لموقع المدرب مبارك السماعيل ويسرنا أن نعرض لكم آخر الدورات والمؤلفات الخاصة بالمدرب. كما نرحب بتواصلكم معنا وإبداء </p>
+    
+     
+      <p style="text-align: center; font-size: 18px; color: black !important;">اقتراحاتكم وآراءكم واستفساراتكم حول كل ما يخص مجال المشاريع الصغيرة و المتوسطة.</p>
   <br>
 </div>
 
@@ -95,9 +87,11 @@
 
 
 <div class="container">
+<hr>
 <p style="text-align: center; color: #5ea7da !important; font-size: 20px;">
-            <strong>الدورات</strong>
+            <strong> الدورات و المؤلفات</strong>
           </p>
+          
       
     	
       <div class="row row-bottom-margin">
@@ -107,15 +101,15 @@
             <div class="mainflip">
             <div class="frontside">
             <div class="card" style="width:20rem;">
-            <img class="card-img-top" src="{{$s->image}}" width="300px" height="190px" alt="card image">
+            <img class="img-responsive card-img-top" height="auto" src="{{asset($s->image)}}" alt="card image">
            
             </div>
             </div>
             <div class="backside">
             <div class="card" style="width:20rem;">
             <div class="card-body">
-            <h5>{{$s->title}}</h5>
-            <a href="{{ url('services/'.$s->id) }}" class="btn btn-info btn-md text-center">Click Here</a>
+            <center><h5 class="text-center">{{$s->title}}</h5></center>
+            <center><a href="{{ url('services/'.$s->id) }}" class="btn btn-info btn-md text-center">اضغط هنا</a></center>
             </div>
             
             </div>
@@ -130,8 +124,10 @@
      
 
     </div>
+    <br><br>
 
 <div class="container">
+<hr>
         <p style="text-align: center; color: #5ea7da !important; font-size: 20px;">
             <strong>الانستقرام</strong>
           </p>

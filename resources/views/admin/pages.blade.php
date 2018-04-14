@@ -1,55 +1,84 @@
-@extends('layouts.admin')
+@extends('layouts.admin')    
 @section('content')
-<div class="col-md-9">
-            <!-- Website Overview -->
-            <div class="panel panel-default">
-              <div class="panel-heading main-color-bg">
-                <h3 class="panel-title">Create Page</h3>
-              </div>
-              <div class="panel-body">
-                
-                <form method="POST" action="/admin">
-                {{ csrf_field() }}
-    <div class="form-group">
-      <label for="exampleInputEmail1">Title</label>
-      <input type="text" class="form-control" name="title"  >
+                    <div class="col-md-12 main">
+        <div class="content-top-1">
+                <div>
+        <div class="col-md-10">
+            <h1>Pages</h1>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-success btn-lg" role="button" href="/admin/create-page"> Add Page</a>
+        </div>
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Description</label>
-    <textarea rows="2" cols="128" name="description" id="editor" ></textarea>  
-    </div>
-    <div class="form-group">
-        <label for="exampleInputFile">Image</label>
-        <input type="file" name="image" >
-    </div>
-    
-    <b>Add to Menu</b>
-          <select name="submenu" class="form-control">
-                <option value="None">None</option>
-                @foreach($cate as $item)
-               
-                    <option value="{{$item->title}}">{{ $item->title }}</option>
-                   
-                    @endforeach
-               
-            </select>
+    <div class="space"></div>
+    <hr>
+    <div class="panel-body">
 
-            
+        <div class="dataTable_wrapper">
 
+            <table class="table table-striped table-bordered table-hover" >
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    
+                    <th>Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($ser as $s)
+                                    <tr class="gradeU">
+                        <td> <a href="{{$s->id}}">{{$s->id}}</a> </td>
+                        <td> <a href="{{$s->title}}">{{$s->title}}</a> </td>
+                        
+                        <td>{{$s->created_at}}</td>
+                        
+                        <td> <a class="btn btn-default" href="{{ url('admin/'.$s->id.'/edit') }}">Edit</a> </td>
+                     <td> <form method="POST" action="/admin/{{$s->id}}">
+										{{ csrf_field() }}
+										<input name="_method" value="delete" type="hidden">
+										<button class="btn btn-danger" type="submit">Delete</button>
+									</form>
+                        </td>
+                    </tr>
+                    @endforeach               
+                                </tbody>
+            </table>
+        </div>
 
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="menu">
-                    <label class="form-check-label" for="exampleCheck1">Main Menu</label>
-                  </div>
+        <div class="text-center"></div>
 
-   <div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-   </div>
+        <div class="modal fade" id="deleteModalBox">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Delete Article </h4>
+            </div>
+            <div class="modal-body">
+                <div class="inner-xs text-center">
+                    Are you sure? ?
+                </div>
+            </div>
+            <div class="modal-footer">
+                <form method="POST" action="http://drwejdan.ideasowners.net" accept-charset="UTF-8" id="deleteModal"><input name="_method" type="hidden" value="DELETE"><input name="_token" type="hidden" value="wwUlpaCjm0IjHulPEi1xt0mhfH0FfrZVpCedRa9z">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-danger" >Yes</button>
                 </form>
-              </div>
-              </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-          </div>
 
+    </div>
 
-          @endsection
+        </div>
+    </div>
+
+                <div class="clearfix"> </div>
+
+        @endsection

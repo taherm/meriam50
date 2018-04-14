@@ -1,14 +1,10 @@
 @extends('layouts.admin')
 @section('content')
-<div class="col-md-9">
-            <!-- Website Overview -->
-            <div class="panel panel-default">
-              <div class="panel-heading main-color-bg">
-                <h3 class="panel-title">Delete Slider Image</h3>
-              </div>
-              <div class="panel-body">
-                
-              <form method="POST" action="/admin/del-slider">
+<div class="col-md-12 main">
+        <div class="content-top-1">
+            
+    <div class="mTop10">
+    <form method="POST" action="/admin/del-slider">
        {{ csrf_field() }}
        <input name="_method" value="delete" type="hidden">
       
@@ -28,10 +24,13 @@
        <button type="submit" class="btn btn-danger">Delete</button>
       </div>  
    </form>
-</div>
-              </div>
 
-          </div>
+    </div>
+
+        </div>
+    </div>
+
+                <div class="clearfix"> </div>
 
 
-          @endsection
+                @endsection
