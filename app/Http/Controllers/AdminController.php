@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use App\Arabicservice;
 use App\Slider;
 use App\Arabicmenu;
+use Intervention\Image\Facades\Image;
 
 
 class AdminController extends Controller
 {
-    
+    const UPLOAD_PATH =  '/uploads/';
 
     public function index()
     {
@@ -35,10 +36,14 @@ class AdminController extends Controller
     public function add_slider()
     {
         $slide=new Slider;
-        $temp=request('image');
-        $filename='img/slider/'.$temp;
-        $slide->image=$filename;
-       
+        
+        $image=request()->image;
+        $imageName =$image->getClientOriginalName();
+        $savePath =public_path() . self::UPLOAD_PATH.$imageName;
+        Image::make($image)->save($savePath, 100);
+        $fullImagePath = app()->make('url')->to(self::UPLOAD_PATH.$imageName);
+        $slide->image=$fullImagePath;
+
         $slide->save();
         return redirect('/admin/add-slider');
     }
@@ -102,9 +107,13 @@ class AdminController extends Controller
         $fn=$serv->title;
         $serv->title=request('title');
         $serv->description=request('description');
-        $temp=request('image');
-        $filename='img/services/'.$temp;
-        $serv->image=$filename;
+        
+        $image=request()->image;
+        $imageName =$image->getClientOriginalName();
+        $savePath =public_path() . self::UPLOAD_PATH.$imageName;
+        Image::make($image)->save($savePath, 100);
+        $fullImagePath = app()->make('url')->to(self::UPLOAD_PATH.$imageName);
+        $serv->image=$fullImagePath;
         
         $menu=Arabicmenu::where('title',"=",$fn)->first();
         $menu->title=request('title');
@@ -153,9 +162,14 @@ $menu->save();
         $serv=new Arabicservice;
         $serv->title=request('title');
         $serv->description=request('description');
-        $temp=request('image');
-        $filename='img/services/'.$temp;
-        $serv->image=$filename;
+       
+        $image=request()->image;
+        $imageName =$image->getClientOriginalName();
+        $savePath =public_path() . self::UPLOAD_PATH.$imageName;
+        Image::make($image)->save($savePath, 100);
+        $fullImagePath = app()->make('url')->to(self::UPLOAD_PATH.$imageName);
+        $serv->image=$fullImagePath;
+
         $serv->save();
     
     //File::put("C://xampp/htdocs/pim/resources/views/services/".request('title').'.blade.php','John Doe is a good boy');

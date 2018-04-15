@@ -5,7 +5,7 @@
             
     <div id="mytoolbar"></div>
     <div class="mTop10">
-    <form method="POST" action="/admin/{{$serv->id}}">
+    <form method="POST" action="/admin/{{$serv->id}}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <br>
     <div class="form-group">

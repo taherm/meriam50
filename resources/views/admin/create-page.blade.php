@@ -4,7 +4,7 @@
         <div class="content-top-1">
             
     <div class="mTop10">
-    <form method="POST" action="/admin">
+    <form method="POST" action="/admin" enctype="multipart/form-data">
                 {{ csrf_field() }}
     <div class="form-group">
       <label for="exampleInputEmail1">Title</label>

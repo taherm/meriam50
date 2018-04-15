@@ -30,8 +30,8 @@
                 <tbody>
                 @foreach($ser as $s)
                                     <tr class="gradeU">
-                        <td> <a href="{{$s->id}}">{{$s->id}}</a> </td>
-                        <td> <a href="{{$s->title}}">{{$s->title}}</a> </td>
+                        <td>{{$s->id}} </td>
+                        <td>{{$s->title}} </td>
                         
                         <td>{{$s->created_at}}</td>
                         

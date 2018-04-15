@@ -16,7 +16,7 @@
             </thead>
             @foreach($cat as $item)
                             <tr>
-                    <td><a href="http://drwejdan.ideasowners.net/admin/categories/9">{{ $item->title }}</a></td>
+                    <td>{{ $item->title }}</td>
                     
                     
                     <td class="text-center">
