@@ -28,7 +28,20 @@
             <span class="icon-bar"></span>
         </button>
         <h1> <a class="navbar-brand" href="/admin" target="_blank">Instructor</a></h1>
+        
+        
     </div>
+    
+     
+                                        <a href="{{ route('logout') }}" class="btn pull-right"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
     <div class=" border-bottom">
 
         <div class="clearfix"></div>
@@ -64,6 +77,8 @@
                             <span class="nav-label black">Delete Slider</span>
                         </a>
                     </li>
+
+                    
                     
                 </ul>
             </div>
