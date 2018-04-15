@@ -84,7 +84,7 @@ Route::get('admin/sub-menu', function () {
     return view('admin.sub-menu');
 })->middleware('auth');
 Route::get('admin/menu', function () {
-    $cat = \App\Arabicmenu::with('children')->where('parent_id','>=',0)->get();
+    $cat = \App\Arabicmenu::with('children')->where('parent_id','=',0)->get();
     return view('admin.menu',compact('cat'));
 })->middleware('auth');
 Route::get('admin/delete-menu', function () {
