@@ -61,19 +61,12 @@ class AdminController extends Controller
 
     public function submenu()
     {
-       
-         $menu=new Arabicmenu;
-         $menu->title=request('title');
-         
+        $menu=new Arabicmenu;
+        $menu->title=request('title');
         $menu->parent_id=Arabicmenu::where('title',request('submenu'))->first()->id;
-        
-         
-         $menu->url="menu/".request('title');
-         $menu->save();
-        //$temp= File::get("C://xampp/htdocs/pim/resources/views/layouts/new-service-layout.blade.php");
-        //File::put("C://xampp/htdocs/pim/resources/views/services/".request('title').'.blade.php',$temp);
-         //dd(request()->all());
-         return redirect('/admin');
+        $menu->url="";
+        $menu->save();
+        return redirect('/admin');
     }
 
 
@@ -82,16 +75,12 @@ class AdminController extends Controller
     public function mainmenu()
     {
        
-         $menu=new Arabicmenu;
-         $menu->title=request('title');
-         
+        $menu=new Arabicmenu;
+        $menu->title=request('title');
         $menu->parent_id='0';
-        $menu->url="menu/".request('title');
-         $menu->save();
-        //$temp= File::get("C://xampp/htdocs/pim/resources/views/layouts/new-service-layout.blade.php");
-        //File::put("C://xampp/htdocs/pim/resources/views/services/".request('title').'.blade.php',$temp);
-         //dd(request()->all());
-         return redirect('/admin');
+        $menu->url="";
+        $menu->save();
+        return redirect('/admin');
     }
 
 
@@ -118,11 +107,9 @@ class AdminController extends Controller
         $menu=Arabicmenu::where('title',"=",$fn)->first();
         $menu->title=request('title');
         $menu->url="services/menu/".$serv->title;
-        if(request('menu')!='None')
-{
+        
     $menu->parent_id=Arabicmenu::where('title',request('menu'))->first()->id;
 
-}
 $menu->save();
         $serv->save();
         //File::move("C://xampp/htdocs/pim/resources/views/services/".$fn.'.blade.php',"C://xampp/htdocs/pim/resources/views/services/".request('title').'.blade.php');
@@ -133,21 +120,12 @@ $menu->save();
 
     public function updatemenu($id)
     {
-            $serv=Arabicmenu::find($id);
-            $fn=$serv->title;
-            $serv->title=request('title');
-            
-            $menu=Arabicmenu::where('title',"=",$fn)->first();
+            $temp=Arabicmenu::find($id);
+            $menu_name=$temp->title;
+            $temp->title=request('title');
+            $menu=Arabicmenu::where('title',"=",$menu_name)->first();
             $menu->title=request('title');
-            $menu->url="menu/".$serv->title;
-            if(request('menu')!='None')
-            {
-                $menu->parent_id=Arabicmenu::where('title',request('menu'))->first()->id;
-            
-            }
-    $menu->save();
-            //File::move("C://xampp/htdocs/pim/resources/views/services/".$fn.'.blade.php',"C://xampp/htdocs/pim/resources/views/services/".request('title').'.blade.php');
-            //dd(request()->all());
+            $menu->save();
             return redirect('/admin');
     }
 
@@ -171,18 +149,11 @@ $menu->save();
         $serv->image=$fullImagePath;
 
         $serv->save();
-    
-    //File::put("C://xampp/htdocs/pim/resources/views/services/".request('title').'.blade.php','John Doe is a good boy');
-
-
-    $menu=new Arabicmenu;
-    $menu->title=request('title');
-    if (isset($_POST['menu'])) {
-        $menu->parent_id='0';
-        // Checkbox is selected
-    } else {
+        $menu=new Arabicmenu;
+        $menu->title=request('title');
+       
         $menu->parent_id=Arabicmenu::where('title',request('submenu'))->first()->id;
-    }
+    
     
    // $menu->url=request('url');
    $menu->url="services/menu/".request('title'); 

@@ -39,22 +39,6 @@ Route::get('/contact-ar', function () {
     return view('contact-ar');
 });
 
-Route::get('/services', function () {
-    return view('services');
-});
-
-Route::get('/services/cfo', function () {
-    return view('services.cfo');
-});
-
-Route::get('/services/bookkeeping', function () {
-    return view('services.bookkeeping');
-});
-
-Route::get('/services/financial-analysis', function () {
-    return view('services.financial-analysis');
-});
-
 
 Route::get('admin','AdminController@index')->middleware('auth');
 Route::post('admin/slider','AdminController@add_slider')->middleware('auth');
@@ -91,26 +75,12 @@ Route::get('admin/delete-menu', function () {
     return view('admin.delete-menu');
 })->middleware('auth');
 Route::delete('admin/delete-menu/{id}','AdminController@del')->middleware('auth');
-
 Route::delete('admin/submenu_edit','AdminController@editsub')->middleware('auth');
 
 
 
-Route::get('services/create','ServicesController@create');
-Route::get('editmenu','MenuController@index');
 Route::get('services/menu/{url}','ServicesController@show');
 Route::get('services/{id}','ServicesController@find');
 Route::get('menu/{url}','MenuController@show');
-Route::post('editmenu','MenuController@store');
-Route::get('del', function () {
-    return view('menu.delete');
-});
 Route::get('services','ServicesController@index');
-Route::post('services/{id}','ServicesController@update');
-Route::get('services/{id}/edit','ServicesController@edit');
-Route::post('services','ServicesController@store');
-Route::delete('services/{id}','ServicesController@destroy');
-
-
-
 Route::get('/home', 'HomeController@index')->name('home');

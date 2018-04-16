@@ -21,7 +21,7 @@
     
     <b>Add to Menu</b>
           <select name="submenu" class="form-control">
-                <option value="None">None</option>
+               
                 @foreach($cate as $item)
                
                     <option value="{{$item->title}}">{{ $item->title }}</option>
@@ -33,10 +33,7 @@
             
 
 
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="menu">
-                    <label class="form-check-label" for="exampleCheck1">Main Menu</label>
-                  </div>
+                 
 
    <div>
     <button type="submit" class="btn btn-primary">Submit</button>

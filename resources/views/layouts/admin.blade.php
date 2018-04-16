@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Instructor Admin Panel</title>
+    <title>MubarakEsmail Admin Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="" />
@@ -27,7 +27,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <h1> <a class="navbar-brand" href="/admin" target="_blank">Instructor</a></h1>
+        <h1> <a class="navbar-brand" href="/admin" target="_blank">Mubarak Esmail</a></h1>
         
         
     </div>
