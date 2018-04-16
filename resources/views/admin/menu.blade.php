@@ -79,7 +79,7 @@
 </div>
 <b>Submenu Item</b>
           <select name="submenu" class="form-control">
-                <option value="None">None</option>
+              
                 @foreach($cate as $item)
                
                     <option value="{{$item->title}}">{{ $item->title }}</option>
@@ -102,5 +102,5 @@
     </div>
 
                 <div class="clearfix"> </div>
-
+                @include('layouts.errors')
             @endsection
