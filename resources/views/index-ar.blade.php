@@ -96,7 +96,7 @@
     	
       <div class="row row-bottom-margin">
       @foreach($ser as $s)
-        <div class="col-sm-4">
+        <div class="col-sm-12 col-md-4">
           <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
             <div class="mainflip">
             <div class="frontside">

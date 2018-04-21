@@ -31,7 +31,7 @@
       @foreach($cat as $item)
 			                @if($item->children->count() > 0)
 							<li class="dropdown">
-								<a href="" style="cursor:default" class="dropdown-toggle disabled" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">{{$item->title}} <i class="fa fa-angle-down"></i></a>
+								<a href=""onclick="return false" class="dropdown-toggle disabled" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">{{$item->title}} <i class="fa fa-angle-down"></i></a>
 								<ul class="dropdown-menu">
 									@foreach($item->children as $submenu)
 					<li><a href="{{ url($submenu->url) }}">{{$submenu->title}}</a></li>
@@ -45,7 +45,7 @@
 				<li><a href="{{ url($item->url) }}">{{$item->title}}</a></li>
 				@endif
 				@endforeach
-						</ul>
+        		</ul>
 						
     </div>
   </div>
