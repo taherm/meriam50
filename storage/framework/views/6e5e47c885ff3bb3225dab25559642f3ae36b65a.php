@@ -38,10 +38,10 @@
     <?php endif; ?>
     <?php if($ext=='mp4'): ?>
     <video controls style="display:block;width:100%;height:361px;margin:0;">
-        <source src="<?php echo e(asset('uploads/'.$slide->image)); ?>" type="video/mp4">
+        <source src="<?php echo e(asset('storage/uploads/'.$slide->image)); ?>" type="video/mp4">
       </video>
       <?php else: ?>
-      <img src="<?php echo e(asset('uploads/'.$slide->image)); ?>"
+      <img src="<?php echo e(asset('storage/uploads/'.$slide->image)); ?>"
                                 data-bgposition="center center"
                                 data-bgfit="cover"
                                 data-bgrepeat="no-repeat"

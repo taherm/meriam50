@@ -10,6 +10,7 @@ use Intervention\Image\Facades\Image;
 use File;
 
 
+
 class AdminController extends Controller
 {
     const UPLOAD_PATH =  '/uploads/';
@@ -33,20 +34,21 @@ class AdminController extends Controller
         return redirect('/admin/delete-slider');
     }
 
-    public function add_slider()
+    public function add_slider(Request $request)
     {
         
         $this->validate(request(),[
             'image'=>'required'
              ]);
         $slide=new Slider;
-        $image=request()->image;
+        //$image=request()->image;
         //ini_set('memory_limit','256M');
-        $imageName = md5(uniqid(rand() * (time()))) . '.' . $image->getClientOriginalExtension();
-        $savePath = public_path(self::UPLOAD_PATH . $imageName);
-        Image::make($image)->save($savePath, 100);
-        $fullImagePath =$imageName;
-        $slide->image=$fullImagePath;
+        $path = $request->file('image')->store('public/uploads');
+        $path_parts = pathinfo($path);
+//dd($path_parts['basename']);
+        //$fullImagePath =$imageName;
+        $slide->image=$path_parts['basename'];
+        
         $slide->save();
         return redirect('/admin/add-slider');
     }
