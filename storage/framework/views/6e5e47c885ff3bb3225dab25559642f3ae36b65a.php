@@ -1,5 +1,4 @@
-@extends('layouts.master-ar')
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 
@@ -7,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-          <img src="{{asset('/img/slider/Header.jpg')}}" float="left" class="img-responsive"/> 
+          <img src="<?php echo e(asset('/img/slider/Header.jpg')); ?>" float="left" class="img-responsive"/> 
           </div>
         </div>
       </div>
@@ -16,50 +15,42 @@
 <div class="container">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
-  {{--  <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-
-
---}}
+  
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
    
-   @php
+   <?php
    $i=0;
-   @endphp
-    @foreach($slider as $slide)
-    @php
+   ?>
+    <?php $__currentLoopData = $slider; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slide): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php
     $ext = pathinfo($slide->image, PATHINFO_EXTENSION);
    
-    @endphp
-    @if ($i==0)
+    ?>
+    <?php if($i==0): ?>
       <div class="item active">
-      @php
+      <?php
       $i++;
-      @endphp
-    @else
+      ?>
+    <?php else: ?>
       <div class="item">
       
-    @endif
-    @if($ext=='mp4')
+    <?php endif; ?>
+    <?php if($ext=='mp4'): ?>
     <video controls style="display:block;width:100%;height:361px;margin:0;">
-        <source src="{{asset('uploads/'.$slide->image)}}" type="video/mp4">
+        <source src="<?php echo e(asset('uploads/'.$slide->image)); ?>" type="video/mp4">
       </video>
-      @else
-      <img src="{{asset('uploads/'.$slide->image)}}"
+      <?php else: ?>
+      <img src="<?php echo e(asset('uploads/'.$slide->image)); ?>"
                                 data-bgposition="center center"
                                 data-bgfit="cover"
                                 data-bgrepeat="no-repeat"
                         >
-                        @endif                
+                        <?php endif; ?>                
                     
               
       </div>
-      @endforeach  
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>  
       
 </div>
     <!-- Left and right controls -->
@@ -95,21 +86,21 @@
       
     	
       <div class="row row-bottom-margin">
-      @foreach($ser as $s)
+      <?php $__currentLoopData = $ser; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="col-sm-12 col-md-4">
           <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
             <div class="mainflip">
             <div class="frontside">
             <div class="card" style="width:20rem;">
-            <img class="img-responsive card-img-top" height="auto" src="{{asset('uploads/'.$s->image)}}" alt="card image">
+            <img class="img-responsive card-img-top" height="auto" src="<?php echo e(asset('uploads/'.$s->image)); ?>" alt="card image">
            
             </div>
             </div>
             <div class="backside">
             <div class="card" style="width:20rem;">
             <div class="card-body">
-            <center><h5 class="text-center">{{$s->title}}</h5></center>
-            <center><a href="{{ url('services/'.$s->id) }}" class="btn btn-info btn-md text-center">اضغط هنا</a></center>
+            <center><h5 class="text-center"><?php echo e($s->title); ?></h5></center>
+            <center><a href="<?php echo e(url('services/'.$s->id)); ?>" class="btn btn-info btn-md text-center">اضغط هنا</a></center>
             </div>
             
             </div>
@@ -117,7 +108,7 @@
             </div>
             </div>
         </div>
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         
       </div>
     
@@ -137,4 +128,5 @@
   <br>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master-ar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

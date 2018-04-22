@@ -22,7 +22,7 @@
     </div>
     <b>Add to Menu</b>
           <select name="menu" class="form-control">
-                <option value="None">None</option>
+                
                 @foreach($cate as $item)
                
                     <option value="{{$item->title}}">{{ $item->title }}</option>

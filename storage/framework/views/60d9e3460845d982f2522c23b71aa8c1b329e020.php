@@ -1,5 +1,4 @@
-@extends('layouts.admin')
-@section('content')      
+<?php $__env->startSection('content'); ?>      
                     <div class="col-md-7 main">
         <div class=" content-top-1">
                 <h1>Menus</h1>
@@ -14,27 +13,28 @@
                 <th class="text-center">Action</th>
             </tr>
             </thead>
-            @foreach($cat as $item)
+            <?php $__currentLoopData = $cat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                    <td>{{ $item->title }}</td>
+                    <td><?php echo e($item->title); ?></td>
                     
                     
                     <td class="text-center">
-                        <a class='btn btn-info btn-xs' href="{{ url('admin/'.$item->id.'/edit_menu') }}">
+                        <a class='btn btn-info btn-xs' href="<?php echo e(url('admin/'.$item->id.'/edit_menu')); ?>">
                             <span class="glyphicon glyphicon-edit"></span>
                             Edit
                         </a>
                         </td>
 
-                     <td>   <form method="POST" action="/admin/delete-menu/{{$item->id}}">
-										{{ csrf_field() }}
+                     <td>   <form method="POST" action="/admin/delete-menu/<?php echo e($item->id); ?>">
+										<?php echo e(csrf_field()); ?>
+
 										<input name="_method" value="delete" type="hidden">
 										<button class="btn btn-danger" type="submit">Delete</button>
 									</form>
                     
                     </td>
                 </tr>
-@endforeach
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             
                     </table>
         
@@ -52,7 +52,8 @@
         <hr>
 
         <form method="POST" action="/main-menu">
-        {{ csrf_field() }}
+        <?php echo e(csrf_field()); ?>
+
         <div class="form-group">
     <label for="companyName">Name</label>
     <input class="form-control" placeholder="Name (English)" name="title" type="text">
@@ -74,5 +75,6 @@
     </div>
 
                 <div class="clearfix"> </div>
-                @include('layouts.errors')
-            @endsection
+                <?php echo $__env->make('layouts.errors', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

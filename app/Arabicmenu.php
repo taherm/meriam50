@@ -16,4 +16,8 @@ class Arabicmenu extends Model
         return $this->hasMany('App\Arabicmenu', 'parent_id');
     }
 
+    public function services()
+    {
+        return $this->hasMany('App\Arabicservice');
+    }
 }
