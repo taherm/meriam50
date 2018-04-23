@@ -17,7 +17,7 @@ class CreateArabicservicesTable extends Migration
             $table->increments('id');
             $table->string('title');
 
-            $table->string('description');
+            $table->longText('description');
             $table->string('image');
             $table->timestamps();
         });
