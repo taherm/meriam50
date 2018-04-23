@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ArabicservicesTableSeeder extends Seeder
+class ArabicServicesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class ArabicservicesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Arabicservices')->insert([
+        DB::table('arabicservices')->insert([
 
             [
                 'title' => 'لا تبدأ مشروعك',

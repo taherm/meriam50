@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ArabicmenusTableSeeder extends Seeder
+class ArabicMenusTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class ArabicmenusTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Arabicmenus')->insert([
+        DB::table('arabicmenus')->insert([
 
             [
                 'id'=>'4',
