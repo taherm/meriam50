@@ -17,13 +17,13 @@ class AdminController extends Controller
 
     public function index()
     {
-       $ser=Arabicservice::all();
-        return view('admin.index',compact('ser'));
+        $ser=Arabicservice::all();
+        return view('admin.index',compact('ser',session('message')));
     }
 
     public function show()
     {
-       $ser=Arabicservice::all();
+        $ser=Arabicservice::all();
         return view('admin.pages',compact('ser'));
     }
 
@@ -31,6 +31,8 @@ class AdminController extends Controller
     public function delete_slider()
     {
         Slider::where('image',request('image'))->delete();
+        session()->flash('message','Slider Deleted!');
+        
         return redirect('/admin/delete-slider');
     }
 
@@ -50,7 +52,9 @@ class AdminController extends Controller
         $slide->image=$path_parts['basename'];
         
         $slide->save();
-        return redirect('/admin/add-slider');
+        session()->flash('message','Slider Added!');
+        
+        return redirect('/admin');
     }
 
 
@@ -83,6 +87,7 @@ class AdminController extends Controller
         $menu = new Arabicmenu();
         $menu->title = request('title');
         $menu->save();
+        session()->flash('message','Main Menu Added!');
         return redirect('/admin');
     }
 
@@ -107,6 +112,8 @@ class AdminController extends Controller
         $serv->image=$fullImagePath;
         $serv->arabicmenu_id=Arabicmenu::where('title',request('menu'))->first()->id;
         $serv->save();
+        session()->flash('message','Page Updated!');
+        
         return redirect('/admin');
     }
 
@@ -118,6 +125,8 @@ class AdminController extends Controller
         $menu = Arabicmenu::where('title', "=", $menu_name)->first();
         $menu->title = request('title');
         $menu->save();
+        session()->flash('message','Menu Updated!');
+        
         return redirect('/admin');
     }
 
@@ -140,6 +149,8 @@ class AdminController extends Controller
         $serv->image=$fullImagePath;
         $serv->arabicmenu_id=Arabicmenu::where('title',request('submenu'))->first()->id;
         $serv->save();
+        session()->flash('message','Page Added!');
+        
         return redirect('/admin');
     }
 
@@ -148,12 +159,16 @@ class AdminController extends Controller
         $serv=Arabicservice::find($id);
         File::delete('uploads/'.$serv->image);
         $serv->delete();
+        session()->flash('message','Page Deleted!');
+        
         return redirect('/admin');
     }
 
     public function del($id)
     {
-        $menu= Arabicmenu::find($id)->delete();;
+        $menu= Arabicmenu::find($id)->delete();
+        session()->flash('message','Main Menu Deleted!');
+        
         return redirect('/admin');
     }
 

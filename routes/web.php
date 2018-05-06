@@ -34,11 +34,22 @@ Route::get('/about-ar', function () {
     return view('about-ar');
 });
 
+Route::get('/album', function () {
+    return view('album');
+});
+
+Route::get('/youtube', function () {
+    return view('youtube');
+});
+
+Route::get('/reserve-courses', function () {
+    return view('reserve-courses');
+});
 
 Route::get('/contact-ar', function () {
     return view('contact-ar');
 });
-
+Route::post('/reserve','ReserveController@send');
 
 Route::get('admin','AdminController@index')->middleware('auth');
 Route::post('admin/slider','AdminController@add_slider')->middleware('auth');

@@ -1,5 +1,4 @@
-@extends('layouts.master-ar')
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 <section id="inner-headline">
@@ -48,10 +47,11 @@
 
 
 
-<img src="{{asset('uploads/mubarakesmail.jpg')}}" class="img-responsive" alt="" />
+<img src="<?php echo e(asset('uploads/mubarakesmail.jpg')); ?>" class="img-responsive" alt="" />
 
     </div>
     </div>
     </div>
     <br><br><br><br><br><br>
-    @endsection
+    <?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master-ar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

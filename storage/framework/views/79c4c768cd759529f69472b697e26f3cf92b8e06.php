@@ -4,14 +4,14 @@
   <title>MubarakEsmail</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}">
-  <link rel="stylesheet" href="{{asset('/css/bootstrap-rtl.min.css')}}">
+  <link rel="stylesheet" href="<?php echo e(asset('/css/bootstrap.min.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(asset('/css/bootstrap-rtl.min.css')); ?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="{{asset('/css/style.css')}}">
+  <link rel="stylesheet" href="<?php echo e(asset('/css/style.css')); ?>">
   <link href="https://fonts.googleapis.com/css?family=Cairo:600" rel="stylesheet"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="{{asset('/js/bootstrap.min.js')}}"></script>
-  <script src="{{asset('/js/instafeed.min.js')}}"></script>
+  <script src="<?php echo e(asset('/js/bootstrap.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('/js/instafeed.min.js')); ?>"></script>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 <div id="container">
@@ -40,23 +40,23 @@
 														</a>
 													
 													</li>
-      @foreach($cat as $item)
-			                @if($item->services->count())
+      <?php $__currentLoopData = $cat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+			                <?php if($item->services->count()): ?>
 							<li class="dropdown">
-								<a href=""onclick="return false" class="dropdown-toggle disabled" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">{{$item->title}} <i class="fa fa-angle-down"></i></a>
+								<a href=""onclick="return false" class="dropdown-toggle disabled" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false"><?php echo e($item->title); ?> <i class="fa fa-angle-down"></i></a>
 								<ul class="dropdown-menu">
-								@foreach($item->services as $submenu)
-					<li><a href="{{url('services'.'/'.$submenu->id)}}">{{$submenu->title}}</a></li>
-					@endforeach
+								<?php $__currentLoopData = $item->services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $submenu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+					<li><a href="<?php echo e(url('services'.'/'.$submenu->id)); ?>"><?php echo e($submenu->title); ?></a></li>
+					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 				</ul>
 			</li>
 							
 							
 					
-				@else
-				<li><a href="">{{$item->title}}</a></li>
-				@endif
-				@endforeach
+				<?php else: ?>
+				<li><a href=""><?php echo e($item->title); ?></a></li>
+				<?php endif; ?>
+				<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <li class="">
 														<a class="nav-link" href="/reserve-courses">
                             لحجز الدورات
@@ -89,7 +89,7 @@
 <hr>
 
 
-@yield('content')
+<?php echo $__env->yieldContent('content'); ?>
 
 <!-- Footer -->
 <footer class="text-center">
@@ -117,7 +117,7 @@
       limit:'4',
       resolution:'low_resolution',
       accessToken: '14927392.8f4c5bf.cafc2df6c80d43769a6e49372ca010b1',
-      template: '  <div class="col-sm-3"><a href="@{{link}}"><img src="@{{image}}" class="img-thumbnail img-responsive"/></a> </div>'
+      template: '  <div class="col-sm-3"><a href="{{link}}"><img src="{{image}}" class="img-thumbnail img-responsive"/></a> </div>'
             });
     feed.run();
 </script>
