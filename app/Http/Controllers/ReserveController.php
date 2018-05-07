@@ -20,7 +20,7 @@ class ReserveController extends Controller
 //dd($data['name']);
 
 try {
-    \Mail::to('ideasownerscompany@gmail.com')->send(new reserve($data));   
+    \Mail::to('info@ideasowners.net')->send(new reserve($data));   
 
 } catch(\Exception $e) {
     dd($e->getMessage());
