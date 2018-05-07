@@ -40,6 +40,16 @@
 														</a>
 													
 													</li>
+
+<li class="">
+														<a class="nav-link" href="/reserve-consultant">
+                            خدمات الاستشارات
+
+														</a>
+													
+													</li>
+
+
       <?php $__currentLoopData = $cat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 			                <?php if($item->services->count()): ?>
 							<li class="dropdown">
@@ -63,6 +73,9 @@
 														</a>
 													
 													</li>
+
+ 
+
                           <li class="">
 														<a class="nav-link" href="/album">
                             البوم الصور

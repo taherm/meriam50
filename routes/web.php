@@ -46,10 +46,15 @@ Route::get('/reserve-courses', function () {
     return view('reserve-courses');
 });
 
+Route::get('/reserve-consultant', function () {
+    return view('reserve-consultant');
+});
+
 Route::get('/contact-ar', function () {
     return view('contact-ar');
 });
 Route::post('/reserve','ReserveController@send');
+Route::post('/consultancy','ReserveController@reserve_consultancy');
 
 Route::get('admin','AdminController@index')->middleware('auth');
 Route::post('admin/slider','AdminController@add_slider')->middleware('auth');
