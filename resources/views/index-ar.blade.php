@@ -135,6 +135,6 @@
     <div id="instafeed"></div>
   </div>
   <br>
-
+  <br><br>
 
 @endsection

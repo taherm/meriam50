@@ -1,5 +1,4 @@
-@extends('layouts.master-ar')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <section id="inner-headline">
       <div class="container">
         <div class="row">
@@ -8,7 +7,8 @@
 
               <li class="active">
                 <h2>
-				{{$ser->title}}
+				<?php echo e($ser->title); ?>
+
 
                 </h2>
               </li>
@@ -23,11 +23,12 @@
     <div class="row">
     <div class="col-lg-6">
     <p>
-									{!!$ser->description!!}
+									<?php echo $ser->description; ?>
+
 									</p>
 </div>
 <div class="col-lg-6">
-<img src="{{asset('uploads/'.$ser->image)}}" class="img-responsive" alt="" />
+<img src="<?php echo e(asset('uploads/'.$ser->image)); ?>" class="img-responsive" alt="" />
 <br>
 <div class="row">
 <div class="col-lg-6">
@@ -46,5 +47,6 @@
     <br>
     
 
-@endsection
+<?php $__env->stopSection(); ?>
   
+<?php echo $__env->make('layouts.master-ar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
