@@ -35,7 +35,8 @@ Route::get('/about-ar', function () {
 });
 
 Route::get('/album', function () {
-    return view('album');
+    $album =\App\Album::all();
+    return view('album',compact('album'));
 });
 
 Route::get('/youtube', function () {
@@ -58,12 +59,20 @@ Route::post('/consultancy','ReserveController@reserve_consultancy');
 
 Route::get('admin','AdminController@index')->middleware('auth');
 Route::post('admin/slider','AdminController@add_slider')->middleware('auth');
+Route::post('admin/album','AdminController@add_album')->middleware('auth');
 Route::delete('admin/del-slider','AdminController@delete_slider')->middleware('auth');
+Route::delete('admin/del-album','AdminController@delete_album')->middleware('auth');
 Route::get('admin/delete-slider',function () {
     return view('admin.delete-slider');
 })->middleware('auth');
+Route::get('admin/delete-album',function () {
+    return view('admin.delete-album');
+})->middleware('auth');
 Route::get('admin/add-slider',function () {
     return view('admin.add-slider');
+})->middleware('auth');
+Route::get('admin/add-album',function () {
+    return view('admin.add-album');
 })->middleware('auth');
 Route::get('admin/page','AdminController@show')->middleware('auth');
 Route::get('admin/create-page', function () {

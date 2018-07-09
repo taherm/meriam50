@@ -1,5 +1,5 @@
-@extends('layouts.admin')    
-@section('content')
+    
+<?php $__env->startSection('content'); ?>
                     <div class="col-md-12 main">
         <div class="content-top-1">
                 <div>
@@ -28,22 +28,23 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($ser as $s)
+                <?php $__currentLoopData = $ser; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr class="gradeU">
-                        <td>{{$s->id}} </td>
-                        <td>{{$s->title}} </td>
+                        <td><?php echo e($s->id); ?> </td>
+                        <td><?php echo e($s->title); ?> </td>
                         
-                        <td>{{$s->created_at}}</td>
+                        <td><?php echo e($s->created_at); ?></td>
                         
-                        <td> <a class="btn btn-default" href="{{ url('admin/'.$s->id.'/edit') }}">Edit</a> </td>
-                     <td> <form method="POST" action="/admin/{{$s->id}}" class="delete">
-										{{ csrf_field() }}
+                        <td> <a class="btn btn-default" href="<?php echo e(url('admin/'.$s->id.'/edit')); ?>">Edit</a> </td>
+                     <td> <form method="POST" action="/admin/<?php echo e($s->id); ?>" class="delete">
+										<?php echo e(csrf_field()); ?>
+
 										<input name="_method" value="delete" type="hidden">
 										<button class="btn btn-danger" type="submit">Delete</button>
 									</form>
                         </td>
                     </tr>
-                    @endforeach               
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>               
                                 </tbody>
             </table>
         </div>
@@ -81,4 +82,5 @@
 
                 <div class="clearfix"> </div>
 
-        @endsection
+        <?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

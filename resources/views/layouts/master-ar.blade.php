@@ -127,7 +127,7 @@
     var feed = new Instafeed({
       get: 'user',
       userId: '14927392',
-      limit:'4',
+      limit:'100',
       resolution:'low_resolution',
       accessToken: '14927392.8f4c5bf.cafc2df6c80d43769a6e49372ca010b1',
       template: '  <div class="col-sm-3"><a href="@{{link}}"><img src="@{{image}}" class="img-thumbnail img-responsive"/></a> </div>'

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RemoveFromArabicmenus extends Migration
+class CreateAlbumsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class RemoveFromArabicmenus extends Migration
      */
     public function up()
     {
-        Schema::table('arabicmenus', function($table) {
-            $table->dropColumn('parent_id');
-            $table->dropColumn('url');
-         });
+        Schema::create('albums', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('image');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -26,6 +27,6 @@ class RemoveFromArabicmenus extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('albums');
     }
 }

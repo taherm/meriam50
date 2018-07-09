@@ -4,17 +4,17 @@
         <div class="content-top-1">
             
     <div class="mTop10">
-    <form method="POST" action="/admin/del-slider" class="delete">
+    <form method="POST" action="/admin/del-album" class="delete">
        {{ csrf_field() }}
        <input name="_method" value="delete" type="hidden">
       
    
-      <b>Slider Image</b>
+      <b>Album Images</b>
              <select name="image" class="form-control">
                    
-                   @foreach($slide as $item)
+                   @foreach($album as $image)
                   
-                       <option value="{{$item->image}}">{{ $item->image }}</option>
+                       <option value="{{$image->id}}">{{ $image->image }}</option>
                       
                        @endforeach
                   

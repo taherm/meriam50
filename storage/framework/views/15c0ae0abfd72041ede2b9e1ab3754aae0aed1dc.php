@@ -17,101 +17,41 @@
     </section>
     <br>
 
-    <div class="container">
-    <div class="row">
-  <div class="col-md-4">
-    <div class="thumbnail">
-     
-        <img src="<?php echo e(asset('uploads/1.jpeg')); ?>" alt="Lights" style="width:100%">
-        <div class="caption">
-        </div>
-     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-        <img src="<?php echo e(asset('uploads/2.jpeg')); ?>" alt="Nature" style="width:100%">
-        <div class="caption">
-        </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-        <img src="<?php echo e(asset('uploads/3.jpeg')); ?>" alt="Fjords" style="width:100%">
-        <div class="caption">
-        </div>
-    </div>
-  </div>
-</div>
 
 
+
+ <div class="container">
+<?php 
+$numOfCols = 3;
+$rowCount = 0;
+$bootstrapColWidth = 12 / $numOfCols;
+?>
 <div class="row">
-  <div class="col-md-4">
-    <div class="thumbnail">
+
+<?php $__currentLoopData = $album; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+ 
+        <div class="col-md-<?php echo $bootstrapColWidth; ?>">
+            <div class="thumbnail">
+              
+        <img src="<?php echo e(asset('uploads/'.$image->image)); ?>" style="width:100%">
      
-        <img src="<?php echo e(asset('uploads/4.jpeg')); ?>" alt="Lights" style="width:100%">
-        <div class="caption">
+              </div>
         </div>
-     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-        <img src="<?php echo e(asset('uploads/5.jpeg')); ?>" alt="Nature" style="width:100%">
-        <div class="caption">
-        </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-        <img src="<?php echo e(asset('uploads/6.jpeg')); ?>" alt="Fjords" style="width:100%">
-        <div class="caption">
-        </div>
-    </div>
-  </div>
+<?php
+    $rowCount++;
+    if($rowCount % $numOfCols == 0) echo '</div><div class="row">';
+
+?>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</div>
 </div>
 
 
 
-<div class="row">
-  <div class="col-md-4">
-    <div class="thumbnail">
-     
-        <img src="<?php echo e(asset('uploads/7.jpeg')); ?>" alt="Lights" style="width:100%">
-        <div class="caption">
-        </div>
-     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-        <img src="<?php echo e(asset('uploads/8.jpeg')); ?>" alt="Nature" style="width:100%">
-        <div class="caption">
-        </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="thumbnail">
-        <img src="<?php echo e(asset('uploads/10.jpeg')); ?>" alt="Fjords" style="width:100%">
-        <div class="caption">
-        </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-md-4">
-    <div class="thumbnail">
-     
-        <img src="<?php echo e(asset('uploads/9.jpeg')); ?>" alt="Lights" style="width:100%">
-        <div class="caption">
-        </div>
-     </div>
-  </div>
-  
-</div>
 
 
 
-</div>
+
     
 
 <?php $__env->stopSection(); ?>

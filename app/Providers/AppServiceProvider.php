@@ -84,6 +84,13 @@ class AppServiceProvider extends ServiceProvider
             $view->with('slide', $slide);
         });
         
+        view()->composer('admin.delete-album', function($view)
+        {
+            $album=\App\Album::all();
+            $view->with('album', $album);
+        });
+        
+
 
 
 

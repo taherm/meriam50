@@ -15,9 +15,8 @@ class CreateArabicmenusTable extends Migration
     {
         Schema::create('arabicmenus', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('parent_id');
+        
             $table->string('title');
-            $table->string('url');
             
             $table->timestamps();
         });

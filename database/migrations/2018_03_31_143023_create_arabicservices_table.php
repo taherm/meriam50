@@ -14,6 +14,8 @@ class CreateArabicservicesTable extends Migration
     public function up()
     {
         Schema::create('arabicservices', function (Blueprint $table) {
+            $table->integer('arabicmenu_id')->unsigned();
+            $table->foreign('arabicmenu_id')->references('id')->on('arabicmenus')->onDelete('cascade')->onUpdate('cascade');
             $table->increments('id');
             $table->string('title');
 
