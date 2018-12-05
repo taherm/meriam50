@@ -126,10 +126,10 @@
 <script type="text/javascript">
     var feed = new Instafeed({
       get: 'user',
-      userId: '14927392',
-      limit:'100',
+      userId: '201923325',
+      limit:'8',
       resolution:'low_resolution',
-      accessToken: '14927392.8f4c5bf.cafc2df6c80d43769a6e49372ca010b1',
+      accessToken: '201923325.1677ed0.1bd411c16d6948a8914cae259664e804',
       template: '  <div class="col-sm-3"><a href="@{{link}}"><img src="@{{image}}" class="img-thumbnail img-responsive"/></a> </div>'
             });
     feed.run();
