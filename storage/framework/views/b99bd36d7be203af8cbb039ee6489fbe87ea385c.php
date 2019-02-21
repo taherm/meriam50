@@ -22,18 +22,18 @@
   <div class="col-md-4">
     <div class="wrapper">
      
-    <iframe width="424" height="238" src="https://www.youtube.com/embed/KTkClkW0MZw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe width="424" height="238" src="https://www.youtube.com/embed/kZrMxk5sXmw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         
      </div>
   </div>
   <div class="col-md-4">
     <div class="wrapper">
-    <iframe width="854" height="480" src="https://www.youtube.com/embed/F15wiLSw3Ts" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
+    <iframe width="854" height="480" src="https://www.youtube.com/embed/JBvD5Xs8U7E" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
     </div>
   </div>
   <div class="col-md-4">
     <div class="wrapper">
-    <iframe width="854" height="480" src="https://www.youtube.com/embed/K7J2wJvdjkA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>    
+    <iframe width="854" height="480" src="https://www.youtube.com/embed/JbVSyWaYEbI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>    
     </div>
   </div>
 </div>

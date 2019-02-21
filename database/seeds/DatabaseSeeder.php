@@ -12,12 +12,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          $this->call([
-            ArabicMenusTableSeeder::class,
-            ArabicServicesTableSeeder::class,
+            ArabicmenusTableSeeder::class,
+            ArabicservicesTableSeeder::class,
             SlidersTableSeeder::class,
             UsersTableSeeder::class,
             AlbumsTableSeeder::class
         ]);
+  //      $this->call(ArabicmenusTableSeeder::class);
+    //    $this->call(ArabicservicesTableSeeder::class);
+     //   $this->call(AlbumsTableSeeder::class);
     }
 }
 

@@ -7,12 +7,13 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-          <img src="{{asset('/img/slider/Header.jpg')}}" float="left" class="img-responsive"/> 
+          <img src="{{asset('/img/slider/homepage-banner.jpg')}}" float="left" class="img-responsive"/> 
           </div>
         </div>
       </div>
     </section>
   <br>
+ 
 <div class="container">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -47,7 +48,7 @@
     @endif
     @if($ext=='mp4')
     
-    <iframe width="100%" height="350" src="https://www.youtube.com/embed/djUCyQeLfzE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
+    <iframe width="100%" height="350" src="https://www.youtube.com/embed/JBvD5Xs8U7E?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>   
       @else
       <img src="{{asset('storage/uploads/'.$slide->image)}}"
                                 data-bgposition="center center"
@@ -73,12 +74,25 @@
 </div>
 </div>
 
+
+<section>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+          <img src="{{asset('/img/slider/io_at.jpg')}}" float="left" class="img-responsive"/> 
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
 <div class="container text-center">
 <br>
-  <p style="text-align: center; font-size: 18px; color: black !important;"> نرحب بزيارتكم لموقع المدرب مبارك السماعيل ويسرنا أن نعرض لكم آخر الدورات والمؤلفات الخاصة بالمدرب. كما نرحب بتواصلكم معنا وإبداء </p>
+  <p style="text-align: center; font-size: 18px; color: black !important;"> نرحب بزيارتكم لموقع المدربة أ.مريم عبدالصمد ويسرنا أن نعرض لكم آخر الدورات والمؤلفات الخاصة بالمدربة. كما نرحب بتواصلكم معنا وإبداء </p>
     
      
-      <p style="text-align: center; font-size: 18px; color: black !important;">اقتراحاتكم وآراءكم واستفساراتكم حول كل ما يخص مجال المشاريع الصغيرة و المتوسطة.</p>
+      <p style="text-align: center; font-size: 18px; color: black !important;">اقتراحاتكم وآراءكم واستفساراتكم حول كل ما يخص مجال ذوي الإعاقة.</p>
   <br>
 </div>
 
@@ -125,7 +139,7 @@
     </div>
     <br><br>
 
-<div class="container">
+  <!--    <div class="container">
 <hr>
         <p style="text-align: center; color: #5ea7da !important; font-size: 20px;">
             <strong>الانستقرام</strong>
@@ -135,5 +149,6 @@
   </div>
   <br>
   <br><br>
+    -->
 
 @endsection

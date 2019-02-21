@@ -97,11 +97,11 @@ class AdminController extends Controller
     public function submenu()
     {
         $this->validate(request(),[
-        'title_en'=>'required'
+        'title'=>'required'
          ]);
         $menu=new Arabicmenu;
-        $menu->title_en=request('title_en');
-        $menu->parent_id=Arabicmenu::where('title_en',request('submenu'))->first()->id;
+        $menu->title=request('title');
+        $menu->parent_id=Arabicmenu::where('title',request('submenu'))->first()->id;
         $menu->url="";
         $menu->save();
         return redirect('/admin');
@@ -111,10 +111,10 @@ class AdminController extends Controller
     public function mainmenu()
     {
         $this->validate(request(), [
-            'title_en' => 'required'
+            'title' => 'required'
         ]);
         $menu = new Arabicmenu();
-        $menu->title_en = request('title_en');
+        $menu->title = request('title');
         $menu->save();
         session()->flash('message','Main Menu Added!');
         return redirect('/admin');
@@ -130,8 +130,8 @@ class AdminController extends Controller
     public function update($id)
     {
         $serv=Arabicservice::find($id);
-        $fn=$serv->title_en;
-        $serv->title_en=request('title_en');
+        $fn=$serv->title;
+        $serv->title=request('title');
         $serv->description=request('description');
         $image=request()->image;
         $imageName = md5(uniqid(rand() * (time()))) . '.' . $image->getClientOriginalExtension();
@@ -139,7 +139,7 @@ class AdminController extends Controller
         Image::make($image)->save($savePath, 100);
         $fullImagePath =$imageName;
         $serv->image=$fullImagePath;
-        $serv->arabicmenu_id=Arabicmenu::where('title_en',request('menu'))->first()->id;
+        $serv->arabicmenu_id=Arabicmenu::where('title',request('menu'))->first()->id;
         $serv->save();
         session()->flash('message','Page Updated!');
         
@@ -150,9 +150,9 @@ class AdminController extends Controller
     public function updatemenu($id)
     {
         $temp = Arabicmenu::find($id);
-        $menu_name = $temp->title_en;
-        $menu = Arabicmenu::where('title_en', "=", $menu_name)->first();
-        $menu->title_en = request('title_en');
+        $menu_name = $temp->title;
+        $menu = Arabicmenu::where('title', "=", $menu_name)->first();
+        $menu->title = request('title');
         $menu->save();
         session()->flash('message','Menu Updated!');
         
@@ -163,12 +163,12 @@ class AdminController extends Controller
     public function store()
     {
         $this->validate(request(),[
-            'title_en'=>'required',
+            'title'=>'required',
             'description'=>'required',
             'image'=>'required'
              ]);
         $serv=new Arabicservice;
-        $serv->title_en=request('title_en');
+        $serv->title=request('title');
         $serv->description=request('description');
         $image=request()->image;
         $imageName = md5(uniqid(rand() * (time()))) . '.' . $image->getClientOriginalExtension();
@@ -176,7 +176,7 @@ class AdminController extends Controller
         Image::make($image)->save($savePath, 100);
         $fullImagePath =$imageName;
         $serv->image=$fullImagePath;
-        $serv->arabicmenu_id=Arabicmenu::where('title_en',request('submenu'))->first()->id;
+        $serv->arabicmenu_id=Arabicmenu::where('title',request('submenu'))->first()->id;
         $serv->save();
         session()->flash('message','Page Added!');
         

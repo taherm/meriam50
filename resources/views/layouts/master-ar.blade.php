@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>MubarakEsmail</title>
+  <title>Meriam</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}">
@@ -107,12 +107,12 @@
 <!-- Footer -->
 <footer class="text-center">
           <div>
-              <p class="pull-left" style="padding:10px">IdeasOwners    
-              
-								<a href="https://www.instagram.com/mubarakalesmail/" target="_blank" title="Instagram">
-									<i class="fa fa-instagram"></i>
+                 
+        
+								<a href="https://www.instagram.com/ideasowners/" target="_blank" title="Instagram">
+                  
+                  <p class="" style="padding:10px">Developed by IdeasOwners 
 								</a>
-              </p> 
               
 								
               
