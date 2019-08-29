@@ -20,7 +20,7 @@ class ReserveController extends Controller
 //dd($data['name']);
 
 try {
-    \Mail::to('tech@ideasowners.net')->send(new reserve($data));   
+    \Mail::to('top_sms@yahoo.com')->send(new reserve($data));   
 
 } catch(\Exception $e) {
     dd($e->getMessage());
@@ -42,7 +42,7 @@ return redirect('/reserve-courses');
     //dd($data['name']);
     
     try {
-        \Mail::to('tech@ideasowners.net')->send(new consultancy($data));   
+        \Mail::to('top_sms@yahoo.com')->send(new consultancy($data));   
     
     } catch(\Exception $e) {
         dd($e->getMessage());
