@@ -48,7 +48,7 @@
           @endif
           @if($ext=='mp4')
 
-          <iframe width="100%" height="350" src="https://www.youtube.com/embed/7JgmY5TqGaE?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <iframe width="100%" height="350" src="https://www.youtube.com/embed/ybtwkzKWaJQ?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           @else
           <img src="{{asset('storage/uploads/'.$slide->image)}}" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
           @endif
